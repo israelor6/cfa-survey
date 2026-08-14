@@ -1,0 +1,11 @@
+node_modules
+dist
+.env.local
+.env.*.local
+.DS_Store
+*.log
+tmp/
+
+# Private product source material — not part of the public site repository
+CFA Economics.pdf
+prompt.md

@@ -1,0 +1,35 @@
+export const CFA_ECONOMICS = {
+  householdIncome: 250_000,
+  takeHomeIncome: 165_000,
+  checkingToday: 10_000,
+  legacySavingsToday: 18_600,
+  externalCash: 45_000,
+  annualCardableSpend: 53_000,
+  annualExternalSpend: 15_000,
+  totalDepositsToday: 28_600,
+  operatingCheckingWithCfa: 2_538,
+  emergencyFundWithCfa: 36_000,
+  outsideCashReturned: 22_500,
+  billFloatWithCfa: 8_358,
+  totalDepositsWithCfa: 69_396,
+  incrementalDeposits: 40_796,
+  annualHouseholdValue: 1_632,
+  grossBankValue: 710,
+  cfaFee: 58,
+  netBankValue: 652,
+  relationshipRepricingGiveback: 857,
+  existingSavingsRate: 0.01,
+  eligibleSavingsRate: 2.5,
+  outsideRate: 3.3,
+  outsideCashRatePaid: 3.5,
+  earningAssetYield: 6.5,
+  netInterchange: 1.1,
+} as const;
+
+export const currency = (value: number, compact = false) =>
+  new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0,
+    notation: compact ? 'compact' : 'standard',
+  }).format(value);
