@@ -34,7 +34,7 @@ Every submission contains:
 - `schema_version` and `session_id`
 - URL metadata, start/completion times, total duration, and per-step durations
 - optional institution, role, asset-size, name, and work email fields
-- all seven raw answers and the conditional implementation blocker
+- all seven raw answers, including the two-part primary-relationship baseline, and the conditional implementation blocker
 - a deterministic generated thesis
 - flattened analysis columns: `q4_rank_1`, `q4_rank_2`, `q4_rank_3`, `thesis_primary`, `thesis_operating_model`, and `thesis_strategic_fit`
 
@@ -70,7 +70,7 @@ Vite derives the repository base path during GitHub Actions builds, so project-p
 ## Project map
 
 - `src/data/economics.ts` — all financial assumptions and currency formatting
-- `src/data/questions.ts` — executive questions, stable machine values, roles, and blockers
+- `src/data/questions.ts` — executive questions, institution lookup, stable machine values, roles, and blockers
 - `src/components/ProductDemos.tsx` — the seven interactive CFA product simulations
 - `src/logic/thesis.ts` — deterministic CFA thesis and strategic-fit logic
 - `src/logic/persistence.ts` — UUID generation, URL metadata, and local session recovery

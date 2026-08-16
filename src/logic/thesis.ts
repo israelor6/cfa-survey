@@ -1,9 +1,10 @@
 import type { Answers, Thesis } from '../types/survey';
 
 const opportunities: Record<string, string> = {
-  deposits: 'Deposit growth', card_spend: 'Payments engagement', direct_deposit: 'Primary relationship',
+  card_spend: 'Payments engagement', direct_deposit: 'Primary relationship',
   bill_pay: 'Payments engagement', products_per_household: 'Relationship expansion',
-  wealth_assets: 'Relationship expansion', retention: 'Retention / primacy',
+  wealth_assets: 'Relationship expansion', term_deposits: 'Deposit depth',
+  credit_relationships: 'Credit relationship expansion',
   less_external_outflow: 'Relationship retention',
 };
 
@@ -21,10 +22,12 @@ const operatingLabels: Record<string, string> = {
 
 export function generateThesis(answers: Answers): Thesis {
   let score = 0;
-  if (answers.q1_deposit_threshold && answers.q1_deposit_threshold !== 'deposits_not_priority') score += 2;
-  if (['extremely_valuable', 'segment_specific', 'only_if_sticky'].includes(answers.q2_liquidity_value ?? '')) score += 2;
+  if (answers.q1_primary_customer_share && answers.q1_primary_customer_share !== 'not_sure') score += 1;
+  if (answers.q1_primary_customers_over_10k && answers.q1_primary_customers_over_10k !== 'not_sure') score += 1;
+  if (['10pct_5k_plus', '10pct_10k_20k'].includes(answers.q2_deposit_viability ?? '')) score += 2;
+  else if (answers.q2_deposit_viability === '20pct_10k_plus') score += 1;
   if (['yes_relationship_economics', 'yes_selected_segments', 'retention_only'].includes(answers.q3_relationship_pricing ?? '')) score += 2;
-  if (answers.q4_relationship_drivers.some((value) => ['deposits', 'retention', 'card_spend'].includes(value))) score += 1;
+  if (answers.q4_relationship_drivers.some((value) => ['direct_deposit', 'card_spend', 'products_per_household', 'credit_relationships'].includes(value))) score += 1;
   if (answers.q7_next_step === 'pilot_sponsor') score += 3;
   else if (answers.q7_next_step === 'internal_intro') score += 2;
   else if (answers.q7_next_step === 'evaluate_further' || answers.q7_next_step === 'implementation_blocked') score += 1;

@@ -3,12 +3,13 @@ import { submitSession } from './submission';
 import type { SessionState } from '../types/survey';
 
 const session: SessionState = {
-  schemaVersion: '1.0', sessionId: 'test-session', startedAt: '2026-08-14T12:00:00.000Z',
+  schemaVersion: '2.0', sessionId: 'test-session', startedAt: '2026-08-14T12:00:00.000Z',
   completedAt: '2026-08-14T12:03:00.000Z', screen: 'summary', respondent: {},
   answers: {
-    q1_deposit_threshold: '15k_30k', q2_liquidity_value: 'extremely_valuable',
+    q1_primary_customer_share: '40_60pct', q1_primary_customers_over_10k: '50k_250k',
+    q2_deposit_viability: '10pct_10k_20k',
     q3_relationship_pricing: 'yes_selected_segments',
-    q4_relationship_drivers: ['deposits', 'retention', 'card_spend'],
+    q4_relationship_drivers: ['direct_deposit', 'credit_relationships', 'card_spend'],
     q5_customer_first_recommendation: 'yes_if_relationship_value',
     q6_autonomy: 'customer_approval', q7_next_step: 'pilot_sponsor',
   },

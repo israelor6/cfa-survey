@@ -1,6 +1,6 @@
 import type { SessionState } from '../types/survey';
 
-const KEY = 'cfa-conference-session-v1';
+const KEY = 'cfa-conference-session-v2';
 
 const urlMetadata = () => {
   const params = new URLSearchParams(window.location.search);
@@ -14,7 +14,7 @@ const urlMetadata = () => {
 export function newSession(): SessionState {
   const now = new Date().toISOString();
   return {
-    schemaVersion: '1.0', sessionId: crypto.randomUUID(), startedAt: now, screen: 'intro',
+    schemaVersion: '2.0', sessionId: crypto.randomUUID(), startedAt: now, screen: 'intro',
     respondent: {}, answers: { q4_relationship_drivers: [] }, stepDurations: {},
     activeStepStartedAt: now, metadata: urlMetadata(), syncStatus: 'idle', submitted: false,
   };

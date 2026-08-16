@@ -22,7 +22,10 @@ function Account({ label, value, tone = 'neutral', delay = 0 }: { label: string;
   );
 }
 
-function HiddenRelationship({ answer }: { answer?: string }) {
+function HiddenRelationship({ answers }: { answers: Answers }) {
+  const shareLabels: Record<string, string> = { under_20pct: '<20%', '20_40pct': '20%–40%', '40_60pct': '40%–60%', '60pct_plus': '60%+', not_sure: 'Not sure' };
+  const customerLabels: Record<string, string> = { under_10k: '<10K', '10k_50k': '10K–50K', '50k_250k': '50K–250K', '250k_plus': '250K+', not_sure: 'Not sure' };
+  const complete = answers.q1_primary_customer_share && answers.q1_primary_customers_over_10k;
   return <div className="demo-body relationship-demo">
     <div className="demo-title-row"><div><span className="overline">Illustrative household</span><h2>Sarah & David</h2></div><span className="income-pill">$250K income</span></div>
     <div className="bank-boundary">
@@ -46,15 +49,19 @@ function HiddenRelationship({ answer }: { answer?: string }) {
         <div><span className="benefit-check">✓</span><p><b>Household stays in control</b><small>CFA proposes; Sarah & David approve</small></p></div>
       </div>
     </motion.div>
-    {answer && <motion.div {...fade} className="threshold-result">
-      <div><span>Your threshold</span><b>{answer === 'deposits_not_priority' ? 'Not a priority' : ({ under_5k: '< $5K', '5k_15k': '$5K–$15K', '15k_30k': '$15K–$30K', '30k_plus': '$30K+' } as Record<string,string>)[answer]}</b></div>
-      <span className="compare-arrow">→</span><div><span>CFA model</span><b className="positive">+$40.8K</b></div>
-      <p>{answer === 'deposits_not_priority' ? 'Deposit lift alone would not define fit for your institution.' : "The sample household clears your institution's threshold."}</p>
+    {complete && <motion.div {...fade} className="baseline-result">
+      <div><span>Primary-bank customers</span><b>{shareLabels[answers.q1_primary_customer_share!]}</b></div>
+      <div><span>Holding more than $10K</span><b>{customerLabels[answers.q1_primary_customers_over_10k!]}</b></div>
+      <p>This establishes the scale of the addressable relationship base—not a forecast.</p>
     </motion.div>}
   </div>;
 }
 
-function CashOrganization() {
+function CashOrganization({ viability }: { viability?: string }) {
+  const viabilityLabels: Record<string, string> = {
+    '10pct_5k_plus': '10% add >$5K', '10pct_10k_20k': '10% add $10K–$20K',
+    '20pct_10k_plus': '20% add >$10K', '20pct_30k_plus': '20% add >$30K',
+  };
   return <div className="demo-body cash-demo">
     <div className="demo-title-row"><div><span className="overline">Next payday</span><h2>Every dollar has a job</h2></div><span className="income-pill positive-bg">Paycheck received</span></div>
     <div className="timeline"><span className="active">Payday</span><i /><span className="active">Reserve</span><i /><span>Due date</span><i /><span>Settle</span></div>
@@ -67,6 +74,7 @@ function CashOrganization() {
     </div>
     <div className="due-list"><div><span>Mortgage</span><small>Reserved today · pays Sep 1</small><b>$3,400</b></div><div><span>Card</span><small>Reserved today · pays Sep 4</small><b>$2,186</b></div></div>
     <AgentNote>Keep money earning until it actually needs to leave.</AgentNote>
+    {viability && <motion.div {...fade} className="viability-result"><div><span>Your viability case</span><b>{viabilityLabels[viability]}</b></div><div><span>CFA sample household</span><b className="positive">+{currency(E.incrementalDeposits)}</b></div></motion.div>}
   </div>;
 }
 
@@ -148,8 +156,8 @@ function BusinessCase({ answers }: { answers: Answers }) {
 export function ProductDemo({ step, answers }: { step: number; answers: Answers }) {
   return <motion.section className="product-demo" key={step} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .25 }} aria-label={`CFA product demonstration, step ${step}`}>
     <div className="product-chrome"><div className="window-dots"><i /><i /><i /></div><span>Your Institution</span><small>Illustrative household</small></div>
-    {step === 1 && <HiddenRelationship answer={answers.q1_deposit_threshold} />}
-    {step === 2 && <CashOrganization />}
+    {step === 1 && <HiddenRelationship answers={answers} />}
+    {step === 2 && <CashOrganization viability={answers.q2_deposit_viability} />}
     {step === 3 && <RelationshipPricing answer={answers.q3_relationship_pricing} />}
     {step === 4 && <PaymentRails ranked={answers.q4_relationship_drivers} />}
     {step === 5 && <CustomerAdvocate />}

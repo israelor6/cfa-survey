@@ -130,6 +130,11 @@ h1, h2, h3, .brand b, .product-demo strong { font-family: 'Avenir Next', Avenir,
 .threshold-result div:nth-of-type(2) { text-align: right; }
 .threshold-result p { grid-column: 1 / -1; margin: 3px 0 0; font-size: 9px; color: var(--muted); border-top: 1px solid #dce6df; padding-top: 7px; }
 .compare-arrow { color: #9ca7a2; }
+.baseline-result, .viability-result { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; background: #f3f7f4; border-radius: 13px; padding: 10px 12px; }
+.baseline-result div + div, .viability-result div + div { border-left: 1px solid #dce6df; padding-left: 9px; }
+.baseline-result span, .viability-result span { display: block; color: var(--muted); font-size: 7px; }
+.baseline-result b, .viability-result b { font-size: 11px; }
+.baseline-result p { grid-column: 1 / -1; margin: 2px 0 0; padding-top: 6px; border-top: 1px solid #dce6df; color: var(--muted); font-size: 7px; }
 .timeline { display: flex; align-items: center; justify-content: space-between; font-size: 8px; color: #8a938f; }
 .timeline span { padding: 5px 7px; border-radius: 999px; background: #eff1ed; }
 .timeline span.active { color: var(--teal); background: var(--mint); font-weight: 700; }
@@ -240,6 +245,13 @@ h1, h2, h3, .brand b, .product-demo strong { font-family: 'Avenir Next', Avenir,
 .research-tag { color: #87724b; background: #f5efdf; border-radius: 999px; padding: 5px 7px; font-size: 7px; }
 .question-card h1 { font-size: 21px; line-height: 1.15; letter-spacing: -.035em; margin: 14px 0; }
 .question-help { margin: -7px 0 12px; color: var(--muted); font-size: 10px; }
+.baseline-groups { display: grid; gap: 12px; }
+.baseline-groups fieldset { margin: 0; padding: 0; border: 0; }
+.baseline-groups legend { display: flex; align-items: flex-start; gap: 7px; width: 100%; margin-bottom: 7px; font-size: 9px; line-height: 1.3; font-weight: 700; }
+.baseline-groups legend span { flex: none; display: grid; place-items: center; width: 17px; height: 17px; border-radius: 5px; background: #edf1ed; color: var(--teal); font-size: 7px; }
+.compact-options { display: flex; flex-wrap: wrap; gap: 5px; }
+.compact-option { min-height: 35px; border: 1px solid var(--line); border-radius: 9px; padding: 0 9px; background: white; font-size: 8px; font-weight: 600; }
+.compact-option.selected { border-color: var(--teal); color: var(--teal); background: #f2faf7; box-shadow: inset 0 0 0 1px var(--teal); }
 .options { display: grid; gap: 6px; }
 .option { width: 100%; min-height: 48px; text-align: left; border: 1px solid var(--line); border-radius: 12px; padding: 9px 10px; background: #fff; display: flex; align-items: center; gap: 9px; transition: border .18s, background .18s, box-shadow .18s; }
 .option:hover { border-color: #acb9b3; }
@@ -266,6 +278,8 @@ h1, h2, h3, .brand b, .product-demo strong { font-family: 'Avenir Next', Avenir,
 .context-card label, .send-card label, .other-blocker { display: grid; gap: 6px; font-size: 10px; font-weight: 700; }
 .context-card label small { color: var(--muted); font-weight: 400; }
 .context-card input, .context-card select, .send-card input, .other-blocker input { min-height: 48px; border: 1px solid var(--line); border-radius: 11px; background: white; padding: 0 12px; color: var(--ink); width: 100%; }
+.lookup-note { display: flex; align-items: flex-start; gap: 7px; margin: -6px 0 0; color: var(--muted); font-size: 8px; line-height: 1.4; }
+.lookup-note span { color: var(--teal); }
 
 /* Blocker */
 .step-label { color: var(--muted); font-size: 11px; }
@@ -352,6 +366,9 @@ h1, h2, h3, .brand b, .product-demo strong { font-family: 'Avenir Next', Avenir,
   .demo-title-row h2 { font-size: clamp(20px, 2vw, 27px); }
   .question-card { overflow-y: auto; padding: 22px; }
   .question-card h1 { font-size: clamp(20px, 2vw, 27px); margin: 18px 0; }
+  .baseline-groups { gap: 16px; }
+  .baseline-groups legend { font-size: 10px; }
+  .compact-option { min-height: 38px; font-size: 9px; }
   .option { min-height: 51px; }
   .option b { font-size: 12px; }
   .option small { font-size: 9px; }

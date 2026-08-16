@@ -1,8 +1,9 @@
 export type Screen = 'intro' | 'context' | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 'blocker' | 'summary';
 
 export type Answers = {
-  q1_deposit_threshold?: string;
-  q2_liquidity_value?: string;
+  q1_primary_customer_share?: string;
+  q1_primary_customers_over_10k?: string;
+  q2_deposit_viability?: string;
   q3_relationship_pricing?: string;
   q4_relationship_drivers: string[];
   q5_customer_first_recommendation?: string;
@@ -30,7 +31,7 @@ export type Thesis = {
 };
 
 export type SessionState = {
-  schemaVersion: '1.0';
+  schemaVersion: '2.0';
   sessionId: string;
   startedAt: string;
   completedAt?: string;
@@ -57,7 +58,7 @@ export type SurveySubmission = {
   };
   respondent: Respondent;
   answers: Required<Pick<Answers,
-    'q1_deposit_threshold' | 'q2_liquidity_value' | 'q3_relationship_pricing' |
+    'q1_primary_customer_share' | 'q1_primary_customers_over_10k' | 'q2_deposit_viability' | 'q3_relationship_pricing' |
     'q4_relationship_drivers' | 'q5_customer_first_recommendation' |
     'q6_autonomy' | 'q7_next_step'>> & Pick<Answers, 'implementation_blocker' | 'implementation_blocker_other'>;
   step_duration_seconds: Record<string, number>;

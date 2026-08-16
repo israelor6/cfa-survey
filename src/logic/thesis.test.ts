@@ -3,9 +3,10 @@ import { generateThesis } from './thesis';
 import type { Answers } from '../types/survey';
 
 const base: Answers = {
-  q1_deposit_threshold: '15k_30k', q2_liquidity_value: 'extremely_valuable',
+  q1_primary_customer_share: '40_60pct', q1_primary_customers_over_10k: '50k_250k',
+  q2_deposit_viability: '10pct_10k_20k',
   q3_relationship_pricing: 'yes_selected_segments',
-  q4_relationship_drivers: ['deposits', 'retention', 'card_spend'],
+  q4_relationship_drivers: ['direct_deposit', 'credit_relationships', 'card_spend'],
   q5_customer_first_recommendation: 'yes_if_relationship_value',
   q6_autonomy: 'customer_approval', q7_next_step: 'pilot_sponsor',
 };
@@ -13,7 +14,7 @@ const base: Answers = {
 describe('generateThesis', () => {
   it('maps ranked priorities and relationship choices deterministically', () => {
     expect(generateThesis(base)).toMatchObject({
-      primary_opportunity: 'Deposit growth', secondary_opportunity: 'Retention / primacy',
+      primary_opportunity: 'Primary relationship', secondary_opportunity: 'Credit relationship expansion',
       relationship_economics: 'Segment-specific', operating_model: 'Customer approved',
       strategic_fit: 'Very strong fit', pilot_readiness: 'High',
     });
