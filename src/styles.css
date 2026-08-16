@@ -336,6 +336,11 @@ h1, h2, h3, .brand b, .product-demo strong { font-family: 'Avenir Next', Avenir,
 .send-card > p { color: var(--muted); font-size: 10px; line-height: 1.45; }
 .send-card label { margin-top: 12px; }
 .send-card .primary-button { width: 100%; margin-top: 15px; }
+.send-card .send-button.sent { color: var(--teal); background: var(--mint); box-shadow: none; opacity: 1; }
+.button-spinner { width: 16px; height: 16px; border: 2px solid rgba(255,255,255,.42); border-top-color: white; border-radius: 50%; animation: button-spin .75s linear infinite; }
+.send-success { display: grid; gap: 2px; margin-top: 10px; padding: 11px; border: 1px solid #c9e4da; border-radius: 11px; color: var(--teal-dark); background: #eff9f5; }
+.send-success b { font-size: 10px; }
+.send-success span { color: #547069; font-size: 8px; line-height: 1.4; }
 .send-card .text-button { width: 100%; margin-top: 4px; }
 .send-card .new-session-link { min-height: 36px; font-size: 9px; border-top: 1px solid var(--line); border-radius: 0; margin-top: 4px; }
 .send-card .local-note { color: #855d3f; background: #f8eee5; border-radius: 8px; padding: 8px; }
@@ -360,6 +365,8 @@ h1, h2, h3, .brand b, .product-demo strong { font-family: 'Avenir Next', Avenir,
 .reset-confirm { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
 .reset-confirm p { grid-column: 1 / -1; margin: 0; font-size: 9px; }
 .reset-confirm button { min-height: 34px; border: 1px solid var(--line); background: white; border-radius: 8px; font-size: 8px; }
+
+@keyframes button-spin { to { transform: rotate(360deg); } }
 
 @media (min-width: 720px) {
   .intro-screen { padding: 30px 44px; grid-template-columns: 1.08fr .92fr; grid-template-rows: auto 1fr auto; align-items: center; }
