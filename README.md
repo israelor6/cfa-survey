@@ -70,7 +70,7 @@ Vite derives the repository base path during GitHub Actions builds, so project-p
 ## Project map
 
 - `src/data/economics.ts` — all financial assumptions and currency formatting
-- `src/data/questions.ts` — executive questions, institution lookup, stable machine values, roles, and blockers
+- `src/data/questions.ts` — executive questions, stable machine values, roles, and blockers
 - `src/components/ProductDemos.tsx` — the seven interactive CFA product simulations
 - `src/logic/thesis.ts` — deterministic CFA thesis and strategic-fit logic
 - `src/logic/persistence.ts` — UUID generation, URL metadata, and local session recovery

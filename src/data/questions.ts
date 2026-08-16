@@ -115,25 +115,3 @@ export const ASSET_OPTIONS: Option[] = [
   ['under_10b', 'Under $10B'], ['10b_50b', '$10B–$50B'], ['50b_100b', '$50B–$100B'],
   ['100b_500b', '$100B–$500B'], ['500b_plus', '$500B+'], ['prefer_not', 'Prefer not to say'],
 ].map(([value, label]) => ({ value, label }));
-
-// A lightweight offline directory keeps conference use fast. Free text remains supported.
-export const BANK_DIRECTORY = [
-  { name: 'JPMorgan Chase', assetSize: '500b_plus' },
-  { name: 'Bank of America', assetSize: '500b_plus' },
-  { name: 'Citibank', assetSize: '500b_plus' },
-  { name: 'Wells Fargo', assetSize: '500b_plus' },
-  { name: 'U.S. Bank', assetSize: '500b_plus' },
-  { name: 'PNC Bank', assetSize: '100b_500b' },
-  { name: 'Truist Bank', assetSize: '500b_plus' },
-  { name: 'Capital One', assetSize: '500b_plus' },
-  { name: 'TD Bank', assetSize: '100b_500b' },
-  { name: 'BMO Bank', assetSize: '100b_500b' },
-  { name: 'Citizens Bank', assetSize: '100b_500b' },
-  { name: 'Fifth Third Bank', assetSize: '100b_500b' },
-  { name: 'M&T Bank', assetSize: '100b_500b' },
-  { name: 'Huntington Bank', assetSize: '100b_500b' },
-  { name: 'KeyBank', assetSize: '100b_500b' },
-  { name: 'Regions Bank', assetSize: '100b_500b' },
-  { name: 'Ally Bank', assetSize: '100b_500b' },
-  { name: 'Navy Federal Credit Union', assetSize: '100b_500b' },
-] as const;

@@ -278,21 +278,6 @@ h1, h2, h3, .brand b, .product-demo strong { font-family: 'Avenir Next', Avenir,
 .context-card label, .send-card label, .other-blocker { display: grid; gap: 6px; font-size: 10px; font-weight: 700; }
 .context-card label small { color: var(--muted); font-weight: 400; }
 .context-card input, .context-card select, .send-card input, .other-blocker input { min-height: 48px; border: 1px solid var(--line); border-radius: 11px; background: white; padding: 0 12px; color: var(--ink); width: 100%; }
-.bank-combobox { position: relative; }
-.bank-combobox input { padding-right: 38px; background-image: linear-gradient(45deg, transparent 50%, #65716c 50%), linear-gradient(135deg, #65716c 50%, transparent 50%); background-position: calc(100% - 18px) 21px, calc(100% - 13px) 21px; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; }
-.bank-search-results { position: absolute; top: calc(100% + 6px); left: 0; right: 0; z-index: 40; overflow: hidden; border: 1px solid #cfd8d2; border-radius: 12px; background: white; box-shadow: 0 18px 45px rgba(30,45,39,.16); }
-.bank-search-results button { width: 100%; min-height: 44px; border: 0; border-bottom: 1px solid #edf0ec; padding: 8px 11px; background: white; display: flex; align-items: center; justify-content: space-between; gap: 10px; text-align: left; }
-.bank-search-results button:last-child { border-bottom: 0; }
-.bank-search-results button:hover, .bank-search-results button[aria-selected='true'] { background: #f0f8f5; }
-.bank-search-results button span { font-size: 10px; font-weight: 700; }
-.bank-search-results button small { flex: none; color: var(--muted); font-size: 8px; }
-.bank-search-results > p { margin: 0; padding: 12px; color: var(--muted); font-size: 9px; line-height: 1.4; }
-.lookup-note { display: flex; align-items: flex-start; gap: 7px; margin: -6px 0 0; color: var(--muted); font-size: 8px; line-height: 1.4; }
-.lookup-note span { color: var(--teal); }
-.lookup-success { display: grid; grid-template-columns: 19px 1fr; gap: 0 7px; align-items: center; margin: -6px 0 0; padding: 7px 8px; border-radius: 9px; color: var(--teal); background: #edf8f4; }
-.lookup-success > span { grid-row: 1 / 3; display: grid; place-items: center; width: 19px; height: 19px; border-radius: 50%; color: white; background: var(--teal); font-size: 9px; }
-.lookup-success b { font-size: 8px; }
-.lookup-success small { color: #537068; font-size: 7px; }
 
 /* Blocker */
 .step-label { color: var(--muted); font-size: 11px; }
