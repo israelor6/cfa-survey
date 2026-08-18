@@ -27,6 +27,7 @@ jobs:
       - run: npm run build
         env:
           VITE_FORMSPREE_ENDPOINT: ${{ vars.VITE_FORMSPREE_ENDPOINT }}
+          VITE_CONSUMER_FORMSPREE_ENDPOINT: ${{ vars.VITE_CONSUMER_FORMSPREE_ENDPOINT }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
